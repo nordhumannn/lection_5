@@ -20,9 +20,6 @@ class Rectangle:
 
     def __lt__(self, other):
         return self.get_area() < other.get_area()
-
-    def __eq__(self, other):
-        return self.get_area() == other.get_area()
     
     def __add__(self, other):
         return self.get_area() + other.get_area()
