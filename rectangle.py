@@ -26,8 +26,8 @@ class Rectangle:
     def __add__(self, other):
         return Rectangle(math.sqrt(self.width * self.height), math.sqrt(other.width * other.height))
 
-    def __mul__(self, n):
-        return self.get_area() * n
+    def __mul__(self, other):
+        return Rectangle(self.width * math.sqrt(other), self.height * math.sqrt(other))
 
     def __str__(self) -> str:
         return f'W: {self.width}, L: {self.height}, Area: {self.get_area()}'
@@ -39,4 +39,4 @@ rec_3 = Rectangle(7, 9)
 print(rec_1 < rec_2)
 print(rec_1 > rec_2)
 print(rec_1 + rec_2)
-print(rec_2 * 10)
+print(rec_2 * 100)
