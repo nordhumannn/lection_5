@@ -69,7 +69,8 @@ class RationalFraction:
         return numerator_1 < numerator_2
 
     def __str__(self):
-        return f'{self.a}/{self.b}'
+        gcd = math.gcd(self.a, self.b)
+        return f'{self.a // gcd}/{self.b // gcd}'   
 
 num_1 = RationalFraction(4, 5)
 num_2 = RationalFraction(6, 9)
