@@ -22,7 +22,7 @@ class RationalFraction:
         denominator //= gcd
         numerator //= gcd
 
-        return f'{numerator}/{denominator}'
+        return RationalFraction(numerator, denominator)
 
     def __truediv__(self, other):
         denominator = self.b * other.a
@@ -32,7 +32,7 @@ class RationalFraction:
         denominator //= gcd
         numerator //= gcd
 
-        return f'{numerator}/{denominator}'
+        return RationalFraction(numerator, denominator)
 
     def __mul__(self, other):
         denominator = self.b * other.b
@@ -42,7 +42,7 @@ class RationalFraction:
         denominator //= gcd
         numerator //= gcd
 
-        return f'{numerator}/{denominator}'
+        return RationalFraction(numerator, denominator)
 
     def __sub__(self, other):
         denominator = math.lcm(self.b, other.b)
@@ -52,7 +52,7 @@ class RationalFraction:
         denominator //= gcd
         numerator //= gcd
 
-        return f'{numerator}/{denominator}'
+        return RationalFraction(numerator, denominator)
 
     def __gt__(self, other):
         denominator = math.lcm(self.b, other.b)
