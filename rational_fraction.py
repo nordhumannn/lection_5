@@ -17,30 +17,18 @@ class RationalFraction:
     def __add__(self, other):
         denominator = math.lcm(self.b, other.b)
         numerator = denominator // self.b * self.a + denominator // other.b * other.a
-        gcd = math.gcd(denominator, numerator)
-
-        denominator //= gcd
-        numerator //= gcd
 
         return RationalFraction(numerator, denominator)
 
     def __truediv__(self, other):
         denominator = self.b * other.a
         numerator = self.a * other.b
-        gcd = math.gcd(denominator, numerator)
-
-        denominator //= gcd
-        numerator //= gcd
 
         return RationalFraction(numerator, denominator)
 
     def __mul__(self, other):
         denominator = self.b * other.b
         numerator = self.a * other.a 
-        gcd = math.gcd(denominator, numerator)
-
-        denominator //= gcd
-        numerator //= gcd
 
         return RationalFraction(numerator, denominator)
 
@@ -69,9 +57,17 @@ class RationalFraction:
         return numerator_1 < numerator_2
 
     def __str__(self):
+        if self.a / self.b > 1:
+            return f'{self.a // self.b} ({self.a - self.a // self.b * self.b} / {self.b})'
+        if self.a == self.b:
+            return '1'   
         gcd = math.gcd(self.a, self.b)
-        return f'{self.a // gcd}/{self.b // gcd}'   
+        self.a // gcd
+        self.b // gcd
+        return f'{self.a}/{self.b}'   
 
-num_1 = RationalFraction(4, 5)
-num_2 = RationalFraction(6, 9)
+num_1 = RationalFraction(1, 2)
+num_2 = RationalFraction(2, 4)
 num_3 = RationalFraction(3, 7)
+
+print(num_1 + num_2)
